@@ -1,211 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VibeForge AI - Generate short-form videos, B-roll, thumbnails, and voiceove</title>
-    <meta name="description" content="AI-powered media generation platform for content creators. Generate short-form videos, B-roll clips, thumbnails, and voiceovers from text prompts.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #1a202c;
-            background: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.25);
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            backdrop-filter: blur(10px);
-            font-weight: 600;
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            font-weight: 900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            line-height: 1.2;
-        }
-        .subtitle {
-            font-size: 1.4em;
-            margin-bottom: 40px;
-            opacity: 0.95;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-        }
-        .cta-primary {
-            display: inline-block;
-            background: white;
-            color: #06B6D4;
-            padding: 18px 45px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: 700;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 30px rgba(0,0,0,0.3);
-        }
-        .content-section {
-            background: white;
-            border-radius: 12px;
-            padding: 60px 40px;
-            margin: 40px 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-        h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: #2d3748;
-            text-align: center;
-            font-weight: 800;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        .feature-card {
-            background: #F7FAFC;
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid #06B6D4;
-        }
-        .feature-card h3 {
-            color: #06B6D4;
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .feature-card p {
-            color: #4A5568;
-            font-size: 1.05em;
-            line-height: 1.7;
-        }
-        .deliverables-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        .deliverable-item {
-            display: flex;
-            align-items: start;
-            padding: 20px;
-            background: #F7FAFC;
-            border-radius: 8px;
-        }
-        .deliverable-item::before {
-            content: "✓";
-            color: #06B6D4;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-right: 15px;
-        }
-        .pricing-section {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        .price {
-            font-size: 3em;
-            font-weight: 900;
-            color: #06B6D4;
-            margin: 20px 0;
-        }
-        .guarantee-box {
-            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
-            border: 2px solid #10B981;
-            border-radius: 12px;
-            padding: 30px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        .guarantee-box h3 {
-            color: #059669;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-        .guarantee-box p {
-            font-size: 1.15em;
-            color: #065F46;
-            line-height: 1.7;
-        }
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: white;
-            background: rgba(0,0,0,0.2);
-            border-radius: 12px;
-            margin-top: 40px;
-        }
-        @media (max-width: 768px) {
-            h1 { font-size: 2em; }
-            .subtitle { font-size: 1.1em; }
-            .features-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-<!-- Google Analytics (GA4) - Measurement ID to be set by Kiki via KIKI-G11 -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VibeForge AI | Creator Tools</title>
+  <meta name="description" content="Short-form video, thumbnails, and voiceovers from prompts. Built for creators and small agencies." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://vibeforgeai.com/" />
+  <meta property="og:title" content="VibeForge AI | Creator Tools" />
+  <meta property="og:description" content="Short-form video, thumbnails, and voiceovers from prompts. Built for creators and small agencies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vibeforgeai.com/" />
+  <link rel="stylesheet" href="styles.css" />
+<!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="badge">Early access — limited spots</div>
-            <h1>VibeForge AI — Create Stunning Media with AI</h1>
-            <p class="subtitle">Generate short-form videos, B-roll, thumbnails, and voiceovers from a single prompt. Built for creators who ship daily.</p>
-            <a href="https://asinetwork.gumroad.com" class="cta-primary">Join the Waitlist</a>
-        </header>
-
-        <div class="content-section">
-            <h2>What You Get</h2>
-            <div class="deliverables-list"><div class="deliverable-item">AI video generation from text prompts</div><div class="deliverable-item">B-roll library generator</div><div class="deliverable-item">Thumbnail creator with brand templates</div><div class="deliverable-item">AI voiceover in 20+ voices</div><div class="deliverable-item">Direct export to TikTok/Reels/Shorts</div></div>
-        </div>
-
-        <div class="content-section"><h2>Common Challenges We Solve</h2><div class="features-grid"><div class="feature-card"><h3>Problem</h3><p>Creating visuals takes hours</p></div><div class="feature-card"><h3>Problem</h3><p>Stock footage is generic and expensive</p></div><div class="feature-card"><h3>Problem</h3><p>Hiring editors doesn't scale</p></div></div></div>
-
-        <div class="content-section pricing-section">
-            <h2>Investment</h2>
-            <div class="price">$19</div>
-            <p style="font-size:1.2em; color:#718096; margin:20px 0;">Professional solution, transparent pricing</p>
-            <a href="https://asinetwork.gumroad.com" class="cta-primary">Join the Waitlist</a>
-        </div>
-
-        <div class="guarantee-box"><h3>💯 Our Guarantee</h3><p>Free tier forever. Cancel anytime.</p></div>
-
-        <footer>
-            <p>&copy; 2026 VibeForge AI. All rights reserved.</p>
-            <p style="margin-top:10px; opacity:0.8;">Powered by ASI Network</p>
-        </footer>
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">VibeForge AI</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+          <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="container">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="kicker">Creator Tools</p>
+      <h1>Generate creator-ready assets in minutes.</h1>
+      <p class="lead">Short-form video, thumbnails, and voiceovers from prompts. Built for creators and small agencies.</p>
+      <div class="cta-row">
+        <a class="button primary" href="contact.html">Get Beta Access</a>
+        <a class="button secondary" href="features.html">See Features</a>
+      </div>
+      <p class="microcopy">
+        For inquiries: <a href="mailto:support@vibeforgeai.com">support@vibeforgeai.com</a>
+      </p>
     </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="sigil">
+        <svg viewBox="0 0 520 360" role="img" aria-label="Abstract brand mark" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0" stop-color="var(--brand)"/>
+      <stop offset="0.6" stop-color="var(--accent)"/>
+      <stop offset="1" stop-color="var(--brand2)"/>
+    </linearGradient>
+  </defs>
+  <g class="float" fill="none" stroke="url(#g)" stroke-width="10" stroke-linecap="round" opacity="0.95">
+    <path d="M90 90 H430" />
+    <path d="M90 180 H430" opacity="0.7" />
+    <path d="M90 270 H430" opacity="0.55" />
+    <path d="M150 85 V275" opacity="0.6"/>
+    <path d="M260 85 V275" opacity="0.85"/>
+    <path d="M370 85 V275" opacity="0.6"/>
+    <circle cx="260" cy="180" r="18" fill="var(--accent)" stroke="none" opacity="0.9"/>
+  </g>
+</svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Highlights">
+    <h2>Built For Momentum</h2>
+    <div class="grid">
+      <article class="card">
+  <h3>Prompt to output</h3>
+  <p>Generate assets without editing suites or timelines.</p>
+</article>
+<article class="card">
+  <h3>Style consistency</h3>
+  <p>A single vibe across thumbnails, clips, and voice.</p>
+</article>
+<article class="card">
+  <h3>Fast iteration</h3>
+  <p>Variants, hooks, and formats for rapid posting cadence.</p>
+</article>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Offers">
+    <h2>Ways To Start</h2>
+    <div class="grid">
+      <article class="card product">
+  <h3>Starter</h3>
+  <div class="price">$19/mo</div>
+  <ul class="features">
+    <li>50 generations</li><li>Basic styles</li><li>Exports</li>
+  </ul>
+  <a class="button primary" href="contact.html">Get Beta Access</a>
+</article>
+<article class="card product">
+  <h3>Creator</h3>
+  <div class="price">$49/mo</div>
+  <ul class="features">
+    <li>Unlimited</li><li>Brand kits</li><li>Priority rendering</li>
+  </ul>
+  <a class="button primary" href="contact.html">Get Beta Access</a>
+</article>
+<article class="card product">
+  <h3>Agency</h3>
+  <div class="price">$199/mo</div>
+  <ul class="features">
+    <li>Seats</li><li>Client workspaces</li><li>Advanced controls</li>
+  </ul>
+  <a class="button primary" href="contact.html">Get Beta Access</a>
+</article>
+    </div>
+    <div class="strip">
+      <p class="muted">
+        Note: Pricing and checkout availability may vary. If checkout is not live yet, use the contact page to request access or a quote.
+      </p>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <strong>VibeForge AI</strong>
+      <div class="muted">© 2026 VibeForge AI. All rights reserved.</div>
+      <div class="muted"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div>
+    </div>
+    <div class="footer-links" aria-label="Footer">
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+<script src="cookie-consent.js"></script>
 </body>
 </html>
